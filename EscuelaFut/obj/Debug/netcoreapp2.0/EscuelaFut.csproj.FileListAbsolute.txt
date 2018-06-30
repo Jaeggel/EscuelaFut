@@ -1,0 +1,14 @@
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\bin\Debug\netcoreapp2.0\EscuelaFut.deps.json
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\bin\Debug\netcoreapp2.0\EscuelaFut.runtimeconfig.json
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\bin\Debug\netcoreapp2.0\EscuelaFut.runtimeconfig.dev.json
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\bin\Debug\netcoreapp2.0\EscuelaFut.dll
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\bin\Debug\netcoreapp2.0\EscuelaFut.pdb
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\obj\Debug\netcoreapp2.0\EscuelaFut.csprojAssemblyReference.cache
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\obj\Debug\netcoreapp2.0\EscuelaFut.csproj.CoreCompileInputs.cache
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\obj\Debug\netcoreapp2.0\EscuelaFut.AssemblyInfoInputs.cache
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\obj\Debug\netcoreapp2.0\EscuelaFut.AssemblyInfo.cs
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\obj\Debug\netcoreapp2.0\EscuelaFut.dll
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\obj\Debug\netcoreapp2.0\EscuelaFut.pdb
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\bin\Debug\netcoreapp2.0\Entidades.dll
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\bin\Debug\netcoreapp2.0\Entidades.pdb
+C:\Users\Joel\source\repos\EscuelaFut\EscuelaFut\obj\Debug\netcoreapp2.0\EscuelaFut.csproj.CopyComplete

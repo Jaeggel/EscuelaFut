@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="col-12 col-md-6" style="width:800px; margin:0 auto;">
+    <legend class="text-center header">Cuenta de Usuario: @ViewBag.User</legend>
+</div>
+<div class="container">
+    <div class="col-12 col-md-6" style="width:800px; margin:0 auto;">
+        <h5 class="text-center">Confirmación Pago</h5>
+        <hr />
+    </div>
+    <div class="container">
+        @using (Html.BeginForm("FormaPago", "Pagos"))
+        {
+        <div class="text-center">
+            <h2>¡Se ha realizado el pago con éxito!</h2>
+            <p id="btnconf">El detalle del pago ha sido enviado a su correo electrónico.</p>
+            <div id="cupon">
+                <img src="~/Content/Template/img/codqr.png"><br />
+                <p>Código de Cupón: @ViewBag.Cupon</p>
+                <a href="#">Imprimir Código QR</a><br />
+                <small>¡Ha sido acreedor de un cupón de descuento en la Lubricadora “AAET”!</small><br />
+                <small>Llevar este código QR para verificar su validez.</small>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Pagos")'">Continuar</button>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        getTotal('@Url.Action("GetTotalPagoAd", "Pagos")');
+    }
+    function getTotal(url) {
+        $.ajax({
+            type: "POST",
+            url: url,
+            success: function (data) {
+                if (data == 50) {
+                    $("#cupon").hide();
+                    $("#btnconf").append("<div style='padding-bottom:120px'></div>");
+                }
+            }
+        });
+    }
+</script>

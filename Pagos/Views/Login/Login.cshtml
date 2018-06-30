@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Pagos.Models.Usuario
+
+<div class="container">
+    <div class="col-12 col-md-6" style="width:800px; margin:0 auto;">
+        <legend class="text-center header">Login</legend>
+        @using (Html.BeginForm("Login", "Login"))
+        {
+            <div class="form-group">
+                <label for="NombreUsuario">Nombre de Usuario</label>
+                <input type="text" class="form-control" name="NombreUsuario" placeholder="Ingresar Nombre de Usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="Password">Contraseña</label>
+                <input type="password" class="form-control" name="Password" placeholder="Ingresar Contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Home")'">Cancelar</button>
+            <div style="padding-bottom:130px"></div>
+        }
+    </div>
+</div>
+@if (ViewBag.MessageError != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            showNotify("Credenciales Incorrectas","Ingrese correctamente sus credenciales...","danger");
+        };
+    </script>
+}

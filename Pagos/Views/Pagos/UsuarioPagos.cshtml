@@ -1,0 +1,134 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="col-12 col-md-6" style="width:800px; margin:0 auto;">
+    <legend class="text-center header">Cuenta de Usuario: @ViewBag.User</legend>
+    <hr />
+</div>
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ef-tab" data-toggle="tab" href="#ef" role="tab" aria-controls="profile" aria-selected="false">Escuela de Fútbol</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="crn-tab" data-toggle="tab" href="#crn" role="tab" aria-controls="contact" aria-selected="false">Cronograma Deportivo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="pagos-tab" data-toggle="tab" href="#pagos" role="tab" aria-controls="contact" aria-selected="true">Pagos</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+        <div class="tab-pane fade" id="ef" role="tabpanel" aria-labelledby="ef-tab"></div>
+        <div class="tab-pane fade" id="crn" role="tabpanel" aria-labelledby="crn-tab"></div>
+        <div class="tab-pane fade show active" id="pagos" role="tabpanel" aria-labelledby="pagos-tab">
+            <div class="container">
+                @using (Html.BeginForm("FormaPago", "Pagos"))
+                {
+                    <div class="row">
+                        <div class="col-md-6" style="padding-top:10px">
+                            <h5>Datos Usuario</h5><hr />
+                            <div class="form-group">
+                                <label for="NombreUsuario">Nombre de Usuario: </label>
+                                <input type="text" class="form-control" name="NombreUsuario" id="fieldNombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="Nombres">Nombres: </label>
+                                <input type="text" class="form-control" name="Nombre" id="fieldNombres">
+                            </div>
+                            <div class="form-group">
+                                <label for="Apellidos">Apellidos: </label>
+                                <input type="text" class="form-control" name="NombreUsuario" id="fieldAplls">
+                            </div>
+                            <div class="form-group">
+                                <label for="CI">Número de Cédula: </label>
+                                <input type="text" class="form-control" name="CI" id="fieldCI">
+                            </div>
+                            <div class="form-group">
+                                <label for="FechaNacimiento">Fecha de Nacimiento: </label>
+                                <input type="date" class="form-control" name="FechaNacimiento" id="fieldFN">
+                            </div>
+                            <div class="form-group">
+                                <label for="Correo">Correo Electrónico: </label>
+                                <input type="text" class="form-control" name="Correo" id="fieldCorreo">
+                            </div>
+                            <div class="form-group">
+                                <label for="CI">Teléfono: </label>
+                                <input type="text" class="form-control" name="Telefono" id="fieldTelf">
+                            </div>
+                            <div class="form-group">
+                                <label for="CI">Dirección: </label>
+                                <input type="text" class="form-control" name="Direccion" id="fieldDirecc">
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding-top:10px">
+                            <h5>Datos de Pago</h5><hr />
+                            <p>¿Pago adelantado de 5 meses?</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioPagos" id="radioPago1" value="Si" checked>
+                                <label class="form-check-label" for="radioPago1">
+                                    Si
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioPagos" id="radioPago2" value="No">
+                                <label class="form-check-label" for="radioPago2">
+                                    No
+                                </label>
+                            </div>
+                            <hr />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" onclick="sendRespPagoAd()">Confirmar Pago</button>
+                                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Home")'">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        showNotify("Autenticación Exitosa", "Bienvenido/a @ViewBag.UserName", "info");
+        getInfoUsuario('@Url.Action("GetInfoUser", "Pagos")');
+    }
+    function getInfoUsuario(url) {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (data) {
+                populateFields(data);
+            },
+            error: function (response) {
+                showNotify("ERROR", "No se pudo cargar el perfil de usuario", "danger");
+            }
+        });
+    }
+    function populateFields(data) {
+        $("#fieldNombre").val(data.NombreUsuario);
+        $("#fieldNombres").val(data.Nombres);
+        $("#fieldAplls").val(data.Apellidos);
+        $("#fieldCI").val(data.CI);
+        $("#fieldFN").val(data.FechaNacimiento);
+        $("#fieldCorreo").val(data.Correo);
+        $("#fieldTelf").val(data.Telefono);
+        $("#fieldDirecc").val(data.Direccion);
+    }
+    function sendRespPagoAd() {
+        var valRadio = $('input[name=radioPagos]:checked').val();
+        console.log(valRadio);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetRespPagoAd", "Pagos")',
+            data: '{respPagoAd: "' + valRadio + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+    }
+</script>

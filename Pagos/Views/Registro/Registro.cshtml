@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Pagos.Models.Usuario
+
+<div class="container">
+    <div class="col">
+        <legend class="text-center header">Registro de Usuario</legend>
+        @using (Html.BeginForm("Registro", "Registro"))
+        {
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Nombres">Nombres</label>
+                    <input type="text" class="form-control" name="Nombres" placeholder="Nombres" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="Apellidos" placeholder="Apellidos" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="NombreUsuario">Nombre de Usuario</label>
+                    <input type="text" class="form-control" name="NombreUsuario" placeholder="Nombre de Usuario" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Contraseña">Contraseña</label>
+                    <input type="password" class="form-control" name="Password" placeholder="Contraseña" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="CI">C.I.</label>
+                    <input maxlength="10" type="text" class="form-control" name="CI" placeholder="Número de Cédula" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" name="FechaNacimiento" placeholder="Fecha de Nacimiento" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Direcccion">Dirección</label>
+                    <input type="text" class="form-control" name="Direccion" placeholder="Dirección" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="Correo">Correo</label>
+                    <input type="email" class="form-control" name="Correo" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="Telefono">Teléfono</label>
+                    <input type="text" class="form-control" name="Telefono" placeholder="Número de Teléfono" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Home")'">Cancelar</button>
+        }
+    </div>
+</div>
+@if (ViewBag.RegisterVerif == "true")
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            showNotify("Registro Exitoso", "El usuario ha sido registrado correctamente...", "info");
+        };
+    </script>
+}
+else if (ViewBag.RegisterVerif == "false")
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            showNotify("ERROR", "No se pudo efectuar el registro", "danger");
+        };
+    </script>
+}
+
+

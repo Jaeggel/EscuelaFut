@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscuelaFut", "EscuelaFut\EscuelaFut.csproj", "{95F3C969-3CF8-4467-BFD5-089FAB39E0F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pagos", "Pagos\Pagos.csproj", "{1CBED177-0220-466E-8F5C-BD58D31C312C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{53AF5B96-0690-4B0C-9C56-96C11B2874CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95F3C969-3CF8-4467-BFD5-089FAB39E0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F3C969-3CF8-4467-BFD5-089FAB39E0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F3C969-3CF8-4467-BFD5-089FAB39E0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F3C969-3CF8-4467-BFD5-089FAB39E0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBED177-0220-466E-8F5C-BD58D31C312C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBED177-0220-466E-8F5C-BD58D31C312C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBED177-0220-466E-8F5C-BD58D31C312C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBED177-0220-466E-8F5C-BD58D31C312C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53AF5B96-0690-4B0C-9C56-96C11B2874CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AF5B96-0690-4B0C-9C56-96C11B2874CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AF5B96-0690-4B0C-9C56-96C11B2874CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AF5B96-0690-4B0C-9C56-96C11B2874CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A79A08B8-C1FC-43A1-8F97-6344F8628356}
+	EndGlobalSection
+EndGlobal

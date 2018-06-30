@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="col-12 col-md-6" style="width:800px; margin:0 auto;">
+    <legend class="text-center header">Cuenta de Usuario: @ViewBag.User</legend>
+</div>
+<div class="container">
+    <div class="col-12 col-md-6" style="width:800px; margin:0 auto;">
+        <h5 class="text-center">Forma de Pago</h5>
+        <hr />
+    </div>
+    <div class="container">
+        @using (Html.BeginForm("ConfPago", "Pagos"))
+        {
+            <div style="width: 50%; margin: 0px auto;">
+                <div class="form-col">
+                    <div class="form-group col-md-12">
+                        <label for="inputState">País:</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Seleccionar...</option>
+                            <option>Ecuador</option>
+                            <option>Perú</option>
+                            <option>Colombia</option>
+                            <option>Argentina</option>
+                            <option>E.E.U.U.</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="form-group col-md-12">
+                            <label for="inputState">Tipo de Tarjeta:</label>
+                            <div class="cc-selector-2">
+                                <input checked="checked" id="visa2" type="radio" name="creditcard" value="visa" />
+                                <label class="drinkcard-cc visa" for="visa2"></label>
+                                <input id="mastercard2" type="radio" name="creditcard" value="mastercard" />
+                                <label class="drinkcard-cc mastercard" for="mastercard2"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="NumTarjeta">Número de Tarjeta</label>
+                        <input type="text" class="form-control" name="NumTarjeta" placeholder="Ingresar Número de Tarjeta:" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="MesFechaVencTrj ">Mes de Vencimiento: </label>
+                                <input maxlength="2" type="text" class="form-control" name="MesFechaVencTrj" placeholder="00" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="AñoFechaVencTrj">Año de Vencimiento: </label>
+                                <input maxlength="4" type="text" class="form-control" name="AñoFechaVencTrj" placeholder="2018" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="Token">Token: </label>
+                        <input type="text" class="form-control" name="Token" placeholder="Ingresar Token:" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="Total">Total a Pagar: </label>
+                        <input type="text" class="form-control" name="Total" id="Total" readonly>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Confirmar Pago</button>
+                        <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("ConfPago", "Pagos")'">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        getTotal('@Url.Action("GetTotalPagoAd", "Pagos")');
+    }
+    function getTotal(url) {
+        $.ajax({
+            type: "POST",
+            url: url,
+            success: function (data) {
+                $("#Total").val("$"+data+".00");       
+            }
+        });
+    }
+</script>

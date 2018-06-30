@@ -1,0 +1,9 @@
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\bin\Debug\netcoreapp2.0\Entidades.deps.json
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\bin\Debug\netcoreapp2.0\Entidades.dll
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\bin\Debug\netcoreapp2.0\Entidades.pdb
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\obj\Debug\netcoreapp2.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\obj\Debug\netcoreapp2.0\Entidades.AssemblyInfoInputs.cache
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\obj\Debug\netcoreapp2.0\Entidades.AssemblyInfo.cs
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\obj\Debug\netcoreapp2.0\Entidades.dll
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\obj\Debug\netcoreapp2.0\Entidades.pdb
+C:\Users\Joel\source\repos\EscuelaFut\Entidades\obj\Debug\netcoreapp2.0\Entidades.csprojAssemblyReference.cache
